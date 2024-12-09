@@ -31,7 +31,7 @@ private int Age;
 @Column(name ="Gender")
 private String Gender; 
 @Column(name = "Phone_Number")
-private int Phone_Number;
+private long  Phone_Number;
 @Column(name="Email")
 private String Email;
 
@@ -47,7 +47,7 @@ public student() {
 
 
 
-public student(String student_ID, String name, int age, String gender, int phone_Number, String email) {
+public student(String student_ID, String name, int age, String gender, long phone_Number, String email) {
     Student_ID = student_ID;
     Name = name;
     Age = age;

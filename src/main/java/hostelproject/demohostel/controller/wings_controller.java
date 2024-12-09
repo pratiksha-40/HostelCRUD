@@ -8,6 +8,7 @@ import hostelproject.demohostel.services.wings_service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,6 +28,13 @@ public class wings_controller {
      public List<Wings> getMethodName() {
          return ws.getallwings();
      }
+      @GetMapping("getwing")
+    public ModelAndView getwing() {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("student-data");
+        mav.addObject("Prasad", ws.getallwings());
+        return mav;
+    }
      
      @PostMapping("addwings")
      public String postMethodName(@RequestBody Wings wing) {
@@ -36,8 +44,8 @@ public class wings_controller {
      }
      
         
-   @DeleteMapping("delete")
-public String deleteStudent(@RequestBody Wings wings) {
+    @DeleteMapping("delete")
+    public String deleteStudent(@RequestBody Wings wings) {
     ws.deletewings(wings); 
     return "Student deleted successfully";
     

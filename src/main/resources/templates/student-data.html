@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Student added in the database</h1>
+
+    <table border="1">  
+        <thead>  
+            <tr>
+                 <th>    
+                 Id    
+           
+            </th>    
+            <th>    
+                         Name   
+             
+            </th>
+            <th>    
+                         Age   
+             
+            </th>
+            <th>    
+                      Gender 
+             
+            </th>
+            <th>    
+                        Phone Number   
+             
+            </th>
+            <th>    
+                        Email     
+     
+           </th>
+        </tr>
+    </thead>  
+    <tbody>
+        <tr th:each="pp : ${Prasad}">
+            <td th:text="${pp.Student_ID}"></td>
+            <td th:text="${pp.Name}"></td>
+            <td th:text="${pp.Age}"></td>
+            <td th:text="${pp.Gender}"></td>
+            <td th:text="${pp.Phone_Number}"></td>
+            <td th:text="${pp.Email}"></td>
+        </tr>
+    </tbody>
+    </table> 
+
+
+
+    {% comment %} <h1>Wings added in the database</h1>
+
+    <table border="1">  
+        <thead>  
+            <tr>
+                 <th>    
+                    Wing_ID     
+           
+            </th>    
+            <th>    
+                        Wing_Name     
+             
+            </th>
+            <th>    
+                        Gender_Allowed     
+             
+            </th>
+            <th>    
+                    Capacity     
+             
+            </th>
+            <th>    
+                        Occupied     
+             
+            </th>
+            <th>    
+            Room_ID     
+     
+    </th>
+        </tr>
+    </thead>  
+    <tbody>
+        <tr th:each="pp : ${Prasad}">
+            <td th:text="${pp.wing_Id}"></td>
+            <td th:text="${pp.wing_Name}"></td>
+            <td th:text="${pp.gender_Allowed}"></td>
+            <td th:text="${pp.capacity}"></td>
+            <td th:text="${pp.occupied}"></td>
+        </tr>
+    </tbody>
+    </table> {% endcomment %}
+    
+    {% comment %} <h1>Wing Room added in the database</h1>
+
+    <table border="1">  
+        <thead>  
+            <tr>
+                    
+            <th>    
+                         ID 
+             
+            </th>
+            <th>    
+                         Number  
+             
+            </th>
+            <th>    
+                      Capacity
+             
+            </th>
+            <th>    
+                        Occupied  
+             
+            </th>
+            
+        </tr>
+    </thead>  
+    <tbody>
+        <tr th:each="pp : ${Prasad}">
+            <td th:text="${pp.Room_ID}"></td>
+            <td th:text="${pp.Room_Number}"></td>
+            <td th:text="${pp.Capacity}"></td>
+            <td th:text="${pp.Occupied}"></td>
+        </tr>
+    </tbody>
+    </table> 
+       
+  {% endcomment %}
+</body>
+</html>

@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import hostelproject.demohostel.services.wingsroom_service;
 import hostelproject.demohostel.entity.WingRoom;
@@ -29,6 +30,13 @@ public class wingsroom_controller {
     @GetMapping("getwingroom")
     public List<WingRoom> getMethodName() {
         return wrs.getallwingRoom();
+    }
+      @GetMapping("getwingsroom")
+    public ModelAndView getwingsroom() {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("student-data");
+        mav.addObject("Prasad", wrs.getallwingRoom());
+        return mav;
     }
 
     @PostMapping("addwingroom")

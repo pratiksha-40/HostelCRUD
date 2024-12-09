@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
+
 import hostelproject.demohostel.services.student_service;
 import java.util.List;
 import hostelproject.demohostel.entity.student;
@@ -26,6 +28,15 @@ public class student_controller {
         return  ss.getallstudents();
     }
 
+     @GetMapping("getbox")
+    public ModelAndView getbox() {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("student-data");
+        mav.addObject("Prasad", ss.getallstudents());
+        return mav;
+    }
+
+
     @PostMapping("addstud")
     public String postMethod(@RequestBody student student) {
       
@@ -33,14 +44,16 @@ public class student_controller {
         return ss.Createstudent(student);
     }
     
-   @DeleteMapping("delete")
-public String deleteStudent(@RequestBody student student) {
+    @DeleteMapping("delete")
+    public String deleteStudent(@RequestBody student student) {
     ss.deletestudent(student); 
     return "Student deleted successfully";
     
 }
-@PutMapping("update")
-public String updateStudentName( @RequestBody student student) {
+    @PutMapping("update")
+    public String updateStudentName( @RequestBody student student) {
     return "updated"+ss.updateStudent(student);
 }
+
+
 }
